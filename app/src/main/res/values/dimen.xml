@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_size">50dp</dimen>
+    <dimen name="username_size">18dp</dimen>
+    <dimen name="login_button_size">26dp</dimen>
+    <dimen name="new_account_size">@dimen/username_size</dimen>
+    <dimen name="toolbar_text_size">20dp</dimen>
+</resources>

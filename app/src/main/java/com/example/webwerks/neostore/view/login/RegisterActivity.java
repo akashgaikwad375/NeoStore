@@ -1,0 +1,71 @@
+package com.example.webwerks.neostore.view.login;
+
+import android.graphics.Paint;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.webwerks.neostore.R;
+import com.example.webwerks.neostore.common.base.BaseActivity;
+
+public class RegisterActivity extends BaseActivity {
+
+    private Toolbar toolbar;
+    private TextView terms, agree, header, gender, male, female;
+    private EditText firstname,lastname,email,confirmPass, password,phone;
+    private Button register;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+
+        initView();
+        Typeface typeface=Typeface.createFromAsset(getAssets(),"fonts/gotham-bold-59d3606e4a6a1.otf");
+        Typeface typeface1=Typeface.createFromAsset(getAssets(),"fonts/gotham-medium-59d36183eb56f.otf");
+
+        header.setTypeface(typeface);
+        firstname.setTypeface(typeface1);
+        lastname.setTypeface(typeface1);
+        email.setTypeface(typeface1);
+        password.setTypeface(typeface1);
+        confirmPass.setTypeface(typeface1);
+        gender.setTypeface(typeface1);
+        male.setTypeface(typeface1);
+        female.setTypeface(typeface1);
+        phone.setTypeface(typeface1);
+        terms.setTypeface(typeface1);
+        agree.setTypeface(typeface1);
+        register.setTypeface(typeface1);
+
+        terms.setPaintFlags(terms.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+    }
+
+    private void initView() {
+        agree=findViewById(R.id.agree);
+        terms=findViewById(R.id.terms);
+        header=findViewById(R.id.registerheader);
+        gender=findViewById(R.id.gender);
+        male=findViewById(R.id.male);
+        female=findViewById(R.id.female);
+
+        firstname=findViewById(R.id.firstname);
+        lastname=findViewById(R.id.lastname);
+        email=findViewById(R.id.email);
+        password=findViewById(R.id.pass);
+        confirmPass=findViewById(R.id.confirmpass);
+        phone=findViewById(R.id.phone);
+        register=findViewById(R.id.register);
+
+        toolbar=findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left_black_24dp);
+
+    }
+}

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.webwerks.neostore.view.login.LoginActivity">
+
+    <TextView
+        android:id="@+id/loginheader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="147dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        style="@style/Header"/>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:inputType="textPersonName"
+        android:hint="@string/username"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
+        android:layout_below="@+id/loginheader"
+        android:layout_centerHorizontal="true"
+        style="@style/EditText_Field"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/username"
+        android:layout_below="@+id/username"
+        android:layout_marginTop="17dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
+        style="@style/EditText_Field"/>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:text="@string/login"
+        style="@style/Button"/>
+
+    <TextView
+        android:id="@+id/forgotPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgotpass"
+        android:layout_below="@+id/login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        style="@style/NewAccount_Forgot_TextView_Style"/>
+
+    <TextView
+        android:id="@+id/newaccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_account"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:paddingBottom="10dp"
+        android:layout_marginLeft="20dp"
+        style="@style/NewAccount_Forgot_TextView_Style"/>
+
+    <ImageView
+        android:id="@+id/addaccount"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@color/colorDarkRed"
+        android:src="@drawable/ic_add_black_24dp"
+        android:layout_marginEnd="14dp"
+        android:layout_alignBottom="@+id/newaccount"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
