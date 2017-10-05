@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
+import com.example.webwerks.neostore.view.home.HomeActivity;
 
 public class LoginActivity extends BaseActivity {
 
@@ -41,6 +42,14 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(LoginActivity.this,HomeActivity.class);
+                startActivity(i);
             }
         });
     }

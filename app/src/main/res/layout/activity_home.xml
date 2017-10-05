@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/drawer_layout"
+    tools:context="com.example.webwerks.neostore.view.home.HomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar"/>
+
+        <LinearLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="230dp">
+
+            </android.support.v4.view.ViewPager>
+        </LinearLayout>
+    </LinearLayout>
+    
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/drawer_header"
+        android:layout_gravity="start"
+        android:background="@color/colorDarkGray"
+        app:itemTextColor="@color/colorWhite"
+        app:itemIconTint="@color/colorWhite"
+        app:itemTextAppearance="@dimen/username_size"
+        app:menu="@menu/drawer_menu">
+
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>

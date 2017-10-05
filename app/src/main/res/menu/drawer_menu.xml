@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:id="@+id/first_section">
+    <item
+        android:id="@+id/my_cart_action"
+        android:title="@string/my_cart"
+        android:icon="@drawable/my_cart"/>
+    </group>
+    <group android:id="@+id/second_section">
+    <item
+        android:id="@+id/table_action"
+        android:title="@string/tables"
+        android:icon="@drawable/table"/>
+    </group>
+    <group android:id="@+id/third_section">
+    <item
+        android:id="@+id/sofas_action"
+        android:title="@string/sofas"
+        android:icon="@drawable/sofa_icon"/>
+    </group>
+    <group android:id="@+id/forth_section">
+    <item
+        android:id="@+id/chairs_action"
+        android:title="@string/chairs"
+        android:icon="@drawable/chair"/>
+    </group>
+    <group android:id="@+id/fifth_section">
+    <item
+        android:id="@+id/cupboards_action"
+        android:title="@string/cupboards"
+        android:icon="@drawable/cupboard"/>
+    </group>
+    <group android:id="@+id/sixth_section">
+    <item
+        android:id="@+id/my_account_action"
+        android:title="@string/my_account"
+        android:icon="@drawable/ic_person_black_24dp"/>
+    </group>
+    <group android:id="@+id/seventh_section">
+    <item
+        android:id="@+id/store_locator_action"
+        android:title="@string/store_locator"
+        android:icon="@drawable/storelocator_icon"/>
+    </group>
+    <group android:id="@+id/eighth_section">
+    <item
+        android:id="@+id/my_orders_action"
+        android:title="@string/my_orders"
+        android:icon="@drawable/myorders_icon"/>
+    </group>
+    <group android:id="@+id/ninth_section">
+    <item
+        android:id="@+id/logout_action"
+        android:title="@string/logout"
+        android:icon="@drawable/logout_icon"/>
+    </group>
+</menu>
