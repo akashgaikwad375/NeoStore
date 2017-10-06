@@ -6,4 +6,16 @@
     <dimen name="new_account_size">@dimen/username_size</dimen>
     <dimen name="toolbar_text_size">23dp</dimen>
     <dimen name="profile_email">15dp</dimen>
+
+    <dimen name="row_height">110dp</dimen>
+    <dimen name="product_width">83dp</dimen>
+    <dimen name="profile_height">77dp</dimen>
+    <dimen name="twenty">20dp</dimen>
+    <dimen name="product_detail_size">10dp</dimen>
+
+    <dimen name="sixteen">16dp</dimen>
+    <dimen name="twenty_six">26dp</dimen>
+    <dimen name="five">5dp</dimen>
+    <dimen name="twelve">12dp</dimen>
+    <dimen name="sixty">60dp</dimen>
 </resources>

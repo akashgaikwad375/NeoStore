@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/product_image"
+        android:src="@drawable/chairsicon"
+        android:layout_marginTop="@dimen/sixteen"
+        android:layout_marginLeft="@dimen/product_detail_size"
+        android:layout_width="@dimen/product_width"
+        android:layout_height="@dimen/profile_height"
+        android:scaleType="centerCrop"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/product_detail_size">
+
+            <TextView
+                android:id="@+id/product_name"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/product_name_style"
+                android:text="@string/tables"/>
+
+            <TextView
+                android:id="@+id/product_detail"
+                android:layout_marginTop="@dimen/five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/product_details_style"
+                android:text="@string/tables"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/sixteen"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/product_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/product_cost_style"
+                android:text="@string/tables"/>
+
+            <RatingBar
+                android:id="@+id/product_rating"
+                android:layout_width="@dimen/sixty"
+                android:layout_height="@dimen/twelve"
+                android:layout_marginTop="@dimen/five"
+                android:layout_marginLeft="@dimen/sixty"
+                android:numStars="5"
+                style="@style/Widget.AppCompat.RatingBar.Small"/>
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
