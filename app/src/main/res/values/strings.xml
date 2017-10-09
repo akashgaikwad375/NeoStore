@@ -36,4 +36,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="add_address">Add Address</string>
+    <string name="address">ADDRESS</string>
+    <string name="city">CITY</string>
+    <string name="state">STATE</string>
+    <string name="zip_code">ZIP CODE</string>
+    <string name="country">COUNTRY</string>
+    <string name="save_address_button">SAVE ADDRESS</string>
+
 </resources>

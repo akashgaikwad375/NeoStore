@@ -8,10 +8,17 @@
     <color name="colorWhite">@color/colorAccent</color>
     <color name="colorDarkRed">@color/colorPrimaryDark</color>
     <color name="colorCostRed">#FE4040</color>
+    <color name="colorYellow">#FFBA00</color>
 
     <color name="colorToolbarRed">@color/colorPrimary</color>
     <color name="colorDarkGray">#2C2B2B</color>
     <color name="colorLightGray">#7F7F7F</color>
     <color name="colorGray">#4F4F4F</color>
+    <color name="colorAddress">#333333</color>
+    <color name="colorblack">#262626</color>
+    <color name="colorLightblack">#4F4F4F</color>
+    <color name="colorAddressBackground">#EDEDED</color>
+
+
 
 </resources>

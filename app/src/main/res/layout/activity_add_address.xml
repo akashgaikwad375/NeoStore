@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorAddressBackground"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.webwerks.neostore.view.address.AddAddressActivity">
+
+    <include layout="@layout/toolbar"/>
+
+        <TextView
+            android:id="@+id/addressText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/address"
+            android:layout_marginTop="@dimen/twenty_seven"
+            android:layout_marginLeft="@dimen/sixteen"
+            android:layout_marginRight="@dimen/sixteen"
+            style="@style/address_style"/>
+        <EditText
+            android:id="@+id/address"
+            android:layout_marginTop="@dimen/sixteen"
+            android:layout_marginLeft="@dimen/sixteen"
+            android:layout_marginRight="@dimen/sixteen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:background="@drawable/address_box"
+            style="@style/address_style"/>
+        <TextView
+            android:id="@+id/cityText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sixteen"
+            android:layout_marginRight="@dimen/sixteen"
+            android:text="@string/city"
+            android:layout_marginTop="@dimen/twenty_seven"
+            style="@style/address_style"/>
+        <EditText
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/sixteen"
+            android:layout_marginTop="@dimen/sixteen"
+            android:layout_marginRight="@dimen/sixteen"
+            style="@style/address_Field_style" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/sixteen"
+            android:layout_marginRight="@dimen/sixteen"
+            android:layout_marginTop="@dimen/twenty_seven"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/city_markText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/city"
+                    style="@style/address_style"/>
+                <EditText
+                    android:id="@+id/city_mark"
+                    android:layout_marginTop="@dimen/sixteen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/address_Field_style"/>
+                <TextView
+                    android:id="@+id/zipText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zip_code"
+                    android:layout_marginTop="@dimen/twenty_seven"
+                    style="@style/address_style"/>
+                <EditText
+                    android:id="@+id/zip_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sixteen"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    style="@style/address_Field_style" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/profile_email"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/stateText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/state"
+                    style="@style/address_style"/>
+                <EditText
+                    android:id="@+id/state"
+                    android:layout_marginTop="@dimen/sixteen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/address_Field_style"/>
+                <TextView
+                    android:id="@+id/countryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/country"
+                    android:layout_marginTop="@dimen/twenty_seven"
+                    style="@style/address_style"/>
+                <EditText
+                    android:id="@+id/country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sixteen"
+                    style="@style/address_Field_style" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/save_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save_address_button"
+            style="@style/Save_Button"
+            android:layout_marginTop="@dimen/twenty_seven"
+            android:layout_marginLeft="@dimen/sixteen"
+            android:layout_marginRight="@dimen/sixteen" />
+
+
+</LinearLayout>

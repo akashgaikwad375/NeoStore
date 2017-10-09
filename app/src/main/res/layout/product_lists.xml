@@ -23,7 +23,7 @@
             <TextView
                 android:id="@+id/product_name"
                 android:layout_marginTop="@dimen/twenty"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/product_name_style"
                 android:text="@string/tables"/>
@@ -31,16 +31,15 @@
             <TextView
                 android:id="@+id/product_detail"
                 android:layout_marginTop="@dimen/five"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/product_details_style"
                 android:text="@string/tables"/>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/sixteen"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/five">
 
             <TextView
                 android:id="@+id/product_cost"
@@ -51,16 +50,17 @@
 
             <RatingBar
                 android:id="@+id/product_rating"
-                android:layout_width="@dimen/sixty"
-                android:layout_height="@dimen/twelve"
-                android:layout_marginTop="@dimen/five"
-                android:layout_marginLeft="@dimen/sixty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:numStars="5"
-                style="@style/Widget.AppCompat.RatingBar.Small"/>
-
-
-
-        </LinearLayout>
+                android:stepSize="1.0"
+                android:isIndicator="false"
+                android:progressTint="@color/colorYellow"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>

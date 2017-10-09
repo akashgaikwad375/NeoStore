@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
+import com.example.webwerks.neostore.common.base.ViewPagerSlideAdapter;
+import com.example.webwerks.neostore.view.address.AddAddressActivity;
 import com.example.webwerks.neostore.view.product.ProductListingActivity;
 
 import java.util.ArrayList;
@@ -87,7 +89,10 @@ public class HomeActivity extends BaseActivity implements HomeFragment.OnFragmen
                     case R.id.cupboards_action: return true;
                     case R.id.my_account_action: return true;
                     case R.id.store_locator_action: return true;
-                    case R.id.my_orders_action: return true;
+                    case R.id.my_orders_action:
+                        Intent i=new Intent(HomeActivity.this, AddAddressActivity.class);
+                        startActivity(i);
+                        break;
                     case R.id.logout_action: return true;
                 }
                 return true;
@@ -186,41 +191,6 @@ public class HomeActivity extends BaseActivity implements HomeFragment.OnFragmen
 
     }
 
-    class ViewPagerSlideAdapter extends PagerAdapter{
 
-        private ArrayList<Integer> images;
-        private LayoutInflater inflater;
-        private Context context;
-
-        public ViewPagerSlideAdapter(HomeActivity homeActivity, ArrayList<Integer> images) {
-            this.context=homeActivity;
-            this.images=images;
-            inflater=LayoutInflater.from(context);
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView((View)object);
-        }
-
-        @Override
-        public int getCount() {
-            return images.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view.equals(object);
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            View view=inflater.inflate(R.layout.fragment_home,container,false);
-            ImageView imageView=view.findViewById(R.id.slide_image);
-            imageView.setImageResource(images.get(position));
-            container.addView(view,0);
-            return view;
-        }
-    }
 }
 

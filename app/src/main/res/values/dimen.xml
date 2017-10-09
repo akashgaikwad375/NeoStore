@@ -17,5 +17,12 @@
     <dimen name="twenty_six">26dp</dimen>
     <dimen name="five">5dp</dimen>
     <dimen name="twelve">12dp</dimen>
-    <dimen name="sixty">60dp</dimen>
+    <dimen name="thirty">30dp</dimen>
+    <dimen name="hundred">100dp</dimen>
+    <dimen name="twenty_seven">27dp</dimen>
+
+    <dimen name="pd_width">280dp</dimen>
+    <dimen name="pd_height">190dp</dimen>
+    <dimen name="pd_image_width">120dp</dimen>
+    <dimen name="pd_image_height">90dp</dimen>
 </resources>
