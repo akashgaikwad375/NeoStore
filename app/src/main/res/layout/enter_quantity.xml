@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/address_list_box">
+
+    <TextView
+        android:id="@+id/productname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/thirty_three"
+        android:text="TextView"
+        style="@style/quantity_Pdname_style" />
+
+    <ImageView
+        android:id="@+id/productimage"
+        android:layout_width="260dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="@dimen/thirty_three"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/slider_img1"
+        android:layout_below="@+id/productname"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/enter_qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Enter_quantity_style"
+        android:layout_marginTop="@dimen/thirty_three"
+        android:text="@string/enter_qty"
+        android:layout_below="@+id/productimage"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/quantity_box"
+        android:layout_marginTop="@dimen/twenty_five"
+        android:inputType="number"
+        android:maxLength="2"
+        android:layout_below="@+id/enter_qty"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        style="@style/Submit_Button"
+        android:layout_below="@+id/editText"
+        android:layout_alignEnd="@+id/productimage"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="@dimen/twenty_five"
+        android:layout_marginTop="@dimen/twenty_five" />
+</RelativeLayout>

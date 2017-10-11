@@ -20,32 +20,12 @@ public class RegisterActivity extends BaseActivity {
     private Button register;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-
-        initView();
-        Typeface typeface=Typeface.createFromAsset(getAssets(),"fonts/gotham-bold-59d3606e4a6a1.otf");
-        Typeface typeface1=Typeface.createFromAsset(getAssets(),"fonts/gotham-medium-59d36183eb56f.otf");
-
-        header.setTypeface(typeface);
-        firstname.setTypeface(typeface1);
-        lastname.setTypeface(typeface1);
-        email.setTypeface(typeface1);
-        password.setTypeface(typeface1);
-        confirmPass.setTypeface(typeface1);
-        gender.setTypeface(typeface1);
-        male.setTypeface(typeface1);
-        female.setTypeface(typeface1);
-        phone.setTypeface(typeface1);
-        terms.setTypeface(typeface1);
-        agree.setTypeface(typeface1);
-        register.setTypeface(typeface1);
-
-        terms.setPaintFlags(terms.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+    public int getContentView() {
+        return R.layout.activity_register;
     }
 
-    private void initView() {
+    @Override
+    public void initView() {
         agree=findViewById(R.id.agree);
         terms=findViewById(R.id.terms);
         header=findViewById(R.id.registerheader);
@@ -62,11 +42,21 @@ public class RegisterActivity extends BaseActivity {
         register=findViewById(R.id.register);
 
         toolbar=findViewById(R.id.toolbar);
+        terms.setPaintFlags(terms.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
 
+    }
+
+
+    @Override
+    public void setListener() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left_black_24dp);
+    }
+
+    @Override
+    public void setActionBar() {
 
     }
 

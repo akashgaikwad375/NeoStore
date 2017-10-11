@@ -20,7 +20,10 @@
     <dimen name="thirty">30dp</dimen>
     <dimen name="hundred">100dp</dimen>
     <dimen name="twenty_seven">27dp</dimen>
-
+    <dimen name="twenty_two">22dp</dimen>
+    <dimen name="thirty_three">33dp</dimen>
+    <dimen name="twenty_five">25dp</dimen>
+    <dimen name="seventeen">17dp</dimen>
     <dimen name="pd_width">280dp</dimen>
     <dimen name="pd_height">190dp</dimen>
     <dimen name="pd_image_width">120dp</dimen>

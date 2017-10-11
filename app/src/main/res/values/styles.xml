@@ -98,4 +98,51 @@
         <item name="android:textColor">@color/colorLightblack</item>
         <item name="android:textSize">@dimen/twelve</item>
     </style>
+    <style name="description_text_style">
+        <item name="android:textColor">@color/colorDescription</item>
+        <item name="android:textSize">@dimen/twelve</item>
+    </style>
+    <style name="description_style">
+        <item name="android:textColor">@color/colorAddress</item>
+        <item name="android:textSize">@dimen/twelve</item>
+    </style>
+
+    <style name="Rate_Button">
+        <item name="android:background">@drawable/rate_button_field</item>
+        <item name="android:textColor">@color/colorLightGray</item>
+        <item name="android:textSize">@dimen/login_button_size</item>
+    </style>
+
+    <style name="Shipping_address_style">
+        <item name="android:textColor">@color/colorAddress</item>
+        <item name="android:textSize">@dimen/twenty_two</item>
+    </style>
+
+    <style name="quantity_Pdname_style">
+        <item name="android:textColor">@color/colorDarkGray</item>
+        <item name="android:textSize">@dimen/twenty_five</item>
+    </style>
+    <style name="Enter_quantity_style">
+        <item name="android:textColor">@color/colorDarkGray</item>
+        <item name="android:textSize">@dimen/twenty</item>
+    </style>
+    <style name="Submit_Button">
+        <item name="android:background">@drawable/submit_button</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/login_button_size</item>
+    </style>
+
+    <style name="Order_price_style">
+        <item name="android:textColor">@color/colorAddress</item>
+        <item name="android:textSize">@dimen/twenty</item>
+    </style>
+
+    <style name="Order_id_style">
+        <item name="android:textColor">@color/colorOrderId</item>
+        <item name="android:textSize">@dimen/seventeen</item>
+    </style>
+    <style name="Order_date_style">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">@dimen/twelve</item>
+    </style>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.webwerks.neostore.view.address;
+package com.example.webwerks.neostore.view.address.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,20 +15,27 @@ public class AddAddressActivity extends BaseActivity {
     private TextView title;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_address);
-        initView();
+    public int getContentView() {
+        return R.layout.activity_add_address;
+    }
+
+    @Override
+    public void initView() {
+        toolbar = findViewById(R.id.toolbar);
+        title = toolbar.findViewById(R.id.title);
+    }
+
+    @Override
+    public void setListener() {
+    }
+
+    @Override
+    public void setActionBar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left_black_24dp);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         title.setText(R.string.add_address);
-    }
-
-    private void initView() {
-        toolbar = findViewById(R.id.toolbar);
-        title = toolbar.findViewById(R.id.title);
     }
 
     @Override

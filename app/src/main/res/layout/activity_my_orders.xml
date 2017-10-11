@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context="com.example.webwerks.neostore.view.product.activity.ProductListingActivity">
+    tools:context="com.example.webwerks.neostore.view.myorder.activity.MyOrdersActivity">
 
     <include layout="@layout/toolbar"/>
-
     <include layout="@layout/recyclerview"/>
 
 </LinearLayout>

@@ -1,6 +1,5 @@
 package com.example.webwerks.neostore.view.login;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -12,9 +11,9 @@ import android.widget.TextView;
 
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
-import com.example.webwerks.neostore.view.home.HomeActivity;
+import com.example.webwerks.neostore.view.home.activity.HomeActivity;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView loginheader, forgotpass, newaccount;
     private EditText username, password;
@@ -22,39 +21,12 @@ public class LoginActivity extends BaseActivity {
     private ImageView addaccount;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
-        initView();
-
-        Typeface typeface=Typeface.createFromAsset(getAssets(),"fonts/gotham-bold-59d3606e4a6a1.otf");
-        Typeface typeface1=Typeface.createFromAsset(getAssets(),"fonts/gotham-medium-59d36183eb56f.otf");
-        loginheader.setTypeface(typeface);
-        username.setTypeface(typeface1);
-        password.setTypeface(typeface1);
-        forgotpass.setTypeface(typeface1);
-        newaccount.setTypeface(typeface1);
-        login.setTypeface(typeface1);
-
-        addaccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=new Intent(LoginActivity.this,HomeActivity.class);
-                startActivity(i);
-            }
-        });
+    public int getContentView() {
+        return R.layout.activity_login;
     }
 
-    private void initView() {
+    @Override
+    public void initView() {
         loginheader=findViewById(R.id.loginheader);
         username=findViewById(R.id.username);
         password=findViewById(R.id.password);
@@ -62,6 +34,31 @@ public class LoginActivity extends BaseActivity {
         newaccount=findViewById(R.id.newaccount);
         login=findViewById(R.id.login);
         addaccount=findViewById(R.id.addaccount);
+    }
 
+    @Override
+    public void setListener() {
+        addaccount.setOnClickListener(this);
+        login.setOnClickListener(this);
+    }
+
+    @Override
+    public void setActionBar() {
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent;
+        switch (view.getId()){
+            case R.id.addaccount:
+                intent=new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.login:
+                intent=new Intent(LoginActivity.this,HomeActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

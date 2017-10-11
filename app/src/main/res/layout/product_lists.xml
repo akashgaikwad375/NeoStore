@@ -9,6 +9,7 @@
         android:src="@drawable/chairsicon"
         android:layout_marginTop="@dimen/sixteen"
         android:layout_marginLeft="@dimen/product_detail_size"
+        android:layout_marginBottom="@dimen/sixteen"
         android:layout_width="@dimen/product_width"
         android:layout_height="@dimen/profile_height"
         android:scaleType="centerCrop"

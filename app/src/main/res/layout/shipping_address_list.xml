@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:fitsSystemWindows="true"
+    android:layout_marginLeft="@dimen/twelve"
+    android:layout_marginRight="@dimen/twelve"
+    android:layout_marginTop="@dimen/twenty"
+    android:paddingBottom="@dimen/twenty"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/select_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/address_radio_state"
+            android:layout_gravity="center"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/twelve"
+            android:background="@drawable/address_list_box"
+            android:paddingBottom="@dimen/twelve"
+            android:paddingLeft="@dimen/twelve">
+
+                <TextView
+                    android:id="@+id/person_name"
+                    android:layout_marginTop="@dimen/five"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Shipping_address_style"
+                    android:text="@string/username"/>
+
+                <ImageView
+                    android:id="@+id/clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_clear_black_24dp"
+                    android:layout_alignTop="@+id/person_name"
+                    android:layout_alignParentEnd="true" />
+
+
+                <TextView
+                    android:id="@+id/address_detail"
+                    android:layout_marginTop="@dimen/five"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/person_name"
+                    style="@style/product_name_style"
+                    android:text="@string/add_address"/>
+
+                <ImageView
+                    android:id="@+id/edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_edit_black_24dp"
+                    android:layout_below="@+id/address_detail"
+                    android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+</LinearLayout>

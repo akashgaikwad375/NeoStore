@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.example.webwerks.neostore.view.address.activity.AddressListActivity">
+
+    <include layout="@layout/toolbar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/twelve"
+            android:layout_marginRight="@dimen/twelve"
+            android:layout_marginTop="@dimen/twelve"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/shipping_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/twelve"
+                android:text="@string/shipping_address"
+                style="@style/Shipping_address_style"/>
+
+            <include layout="@layout/recyclerview"/>
+            <Button
+                android:id="@+id/place_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/thirty"
+                style="@style/Save_Button"
+                android:layout_marginBottom="@dimen/thirty"
+                android:text="@string/place_order" />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,29 +1,24 @@
-package com.example.webwerks.neostore.common.base;
+package com.example.webwerks.neostore.view.product.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.example.webwerks.neostore.R;
-import com.example.webwerks.neostore.view.product.ProductDetailsActivity;
-import java.util.ArrayList;
 
-public class ProductDetailsCustomAdapter extends RecyclerView.Adapter<ProductDetailsCustomAdapter.CustomViewHolder> {
+public class ProductDetailsAdapter extends
+        RecyclerView.Adapter<ProductDetailsAdapter.CustomViewHolder> {
 
-    private ArrayList<Integer> list;
     private Context context;
 
-    public ProductDetailsCustomAdapter(Context context,ArrayList list) {
+    public ProductDetailsAdapter(Context context) {
         this.context=context;
-        this.list=list;
     }
     @Override
-    public ProductDetailsCustomAdapter.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ProductDetailsAdapter.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context=parent.getContext();
         LayoutInflater inflater=LayoutInflater.from(context);
         View view=inflater.inflate(R.layout.product_details_image_list, null,true);
@@ -34,11 +29,12 @@ public class ProductDetailsCustomAdapter extends RecyclerView.Adapter<ProductDet
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
         holder.bind();
+
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return 4;
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -52,12 +48,12 @@ public class ProductDetailsCustomAdapter extends RecyclerView.Adapter<ProductDet
 
 
         public void bind() {
-            listimageView.setImageResource(list.get(getAdapterPosition()));
+            listimageView.setImageResource(R.drawable.slider_img1);
         }
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(view.getContext(), (getAdapterPosition()+1)+" OF "+list.size(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), (getAdapterPosition()+1)+" OF "+4, Toast.LENGTH_SHORT).show();
         }
     }
 }

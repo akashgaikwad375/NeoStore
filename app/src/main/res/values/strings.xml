@@ -26,6 +26,7 @@
     <string name="chairs">Chairs</string>
     <string name="cupboards">Cupboards</string>
     <string name="my_account">My Account</string>
+    <string name="my_address">My Address</string>
     <string name="store_locator">Store Locator</string>
     <string name="my_orders">My Orders</string>
     <string name="logout">Logout</string>
@@ -43,5 +44,21 @@
     <string name="zip_code">ZIP CODE</string>
     <string name="country">COUNTRY</string>
     <string name="save_address_button">SAVE ADDRESS</string>
+
+    <string name="buy_now">BUY NOW</string>
+    <string name="rate">RATE</string>
+    <string name="rate_now">RATE NOW</string>
+    <string name="descrip_text">DESCRIPTION</string>
+    <string name="description">DESCRIPTION</string>
+
+    <string name="choose">Share with</string>
+
+    <string name="shipping_address">Shipping Address</string>
+    <string name="place_order">PLACE ORDER</string>
+    <string name="enter_qty">Enter Qty</string>
+    <string name="submit">SUBMIT</string>
+
+    <string name="order_id">Order ID:</string>
+    <string name="order_date">Order Date:</string>
 
 </resources>

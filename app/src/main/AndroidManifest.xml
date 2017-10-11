@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.webwerks.neostore">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,10 +19,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.login.RegisterActivity" />
-        <activity android:name=".view.home.HomeActivity" />
-        <activity android:name=".view.product.ProductListingActivity" />
-        <activity android:name=".view.address.AddAddressActivity" />
-        <activity android:name=".view.product.ProductDetailsActivity"></activity>
+        <activity android:name=".view.home.activity.HomeActivity" />
+        <activity android:name=".view.product.activity.ProductListingActivity" />
+        <activity android:name=".view.address.activity.AddAddressActivity" />
+        <activity android:name=".view.product.activity.ProductDetailsActivity" />
+        <activity android:name=".view.address.activity.AddressListActivity" />
+        <activity android:name=".view.myorder.activity.MyOrdersActivity"></activity>
     </application>
 
 </manifest>

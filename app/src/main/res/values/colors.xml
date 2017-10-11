@@ -19,6 +19,11 @@
     <color name="colorLightblack">#4F4F4F</color>
     <color name="colorAddressBackground">#EDEDED</color>
 
+    <color name="colorDescription">#111111</color>
+    <color name="colorRateButton">#BFBFBF</color>
+    <color name="colorAddressRadioButton">#8E8E8E</color>
+    <color name="colorOrderId">#1c1c1c</color>
+    <color name="colorGreen">#00FF00</color>
 
 
 </resources>

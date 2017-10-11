@@ -38,18 +38,24 @@
         android:icon="@drawable/ic_person_black_24dp"/>
     </group>
     <group android:id="@+id/seventh_section">
+        <item
+            android:id="@+id/my_address_action"
+            android:title="@string/my_address"
+            android:icon="@drawable/ic_location_city_black_24dp"/>
+    </group>
+    <group android:id="@+id/eighth_section">
     <item
         android:id="@+id/store_locator_action"
         android:title="@string/store_locator"
         android:icon="@drawable/storelocator_icon"/>
     </group>
-    <group android:id="@+id/eighth_section">
+    <group android:id="@+id/ninth_section">
     <item
         android:id="@+id/my_orders_action"
         android:title="@string/my_orders"
         android:icon="@drawable/myorders_icon"/>
     </group>
-    <group android:id="@+id/ninth_section">
+    <group android:id="@+id/tenth_section">
     <item
         android:id="@+id/logout_action"
         android:title="@string/logout"

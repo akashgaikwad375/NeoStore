@@ -1,4 +1,4 @@
-package com.example.webwerks.neostore.common.base;
+package com.example.webwerks.neostore.view.home.adapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -8,21 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.webwerks.neostore.R;
-import com.example.webwerks.neostore.view.home.HomeActivity;
-
-import java.util.ArrayList;
 
 
+public class HomeBannerSliderAdapter extends PagerAdapter {
 
-public class ViewPagerSlideAdapter extends PagerAdapter {
-
-    private ArrayList<Integer> images;
     private LayoutInflater inflater;
     private Context context;
 
-    public ViewPagerSlideAdapter(Context context, ArrayList<Integer> images) {
+    public HomeBannerSliderAdapter(Context context) {
         this.context=context;
-        this.images=images;
         inflater=LayoutInflater.from(context);
     }
 
@@ -33,7 +27,7 @@ public class ViewPagerSlideAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return images.size();
+        return 5;
     }
 
     @Override
@@ -45,7 +39,7 @@ public class ViewPagerSlideAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         View view=inflater.inflate(R.layout.fragment_home,container,false);
         ImageView imageView=view.findViewById(R.id.slide_image);
-        imageView.setImageResource(images.get(position));
+        imageView.setImageResource(R.drawable.slider_img1);
         container.addView(view,0);
         return view;
     }
