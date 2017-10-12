@@ -44,19 +44,24 @@ public class AddressListAdapter extends RecyclerView.Adapter<AddressListAdapter.
 
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView UserName;
+        TextView personName,addressDetails;
         RadioButton radioButton;
+        ImageView clear,edit;
         public CustomViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            UserName = itemView.findViewById(R.id.person_name);
+            personName = itemView.findViewById(R.id.person_name);
+            addressDetails = itemView.findViewById(R.id.address_detail);
+            clear = itemView.findViewById(R.id.clear);
+            edit = itemView.findViewById(R.id.edit);
             radioButton = itemView.findViewById(R.id.select_address);
             radioButton.setOnClickListener(this);
         }
 
 
         public void bind(int position) {
-            UserName.setText("UserName: "+position);
+            personName.setText("Person Name: "+position);
+            addressDetails.setText("Address: "+position);
 
         }
 

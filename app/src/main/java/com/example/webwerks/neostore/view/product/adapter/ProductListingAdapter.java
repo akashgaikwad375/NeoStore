@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,15 +42,19 @@ public class ProductListingAdapter extends RecyclerView.Adapter<ProductListingAd
 
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView productName;
+        TextView productName,productDetail,productPrice;
         ImageView productImage;
+        RatingBar ratingBar;
+
         public CustomViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             productName = itemView.findViewById(R.id.product_name);
             productImage = itemView.findViewById(R.id.product_image);
+            productDetail = itemView.findViewById(R.id.product_detail);
+            productPrice = itemView.findViewById(R.id.product_cost);
+            ratingBar = itemView.findViewById(R.id.product_rating);
         }
-
 
         public void bind(int position) {
             productName.setText("Product: "+position);

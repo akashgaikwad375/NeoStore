@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/order_image"
+        android:src="@drawable/slider_img2"
+        android:layout_marginTop="@dimen/sixteen"
+        android:layout_marginLeft="@dimen/twelve"
+        android:layout_marginBottom="@dimen/sixteen"
+        android:layout_width="@dimen/product_width"
+        android:layout_height="@dimen/product_width"
+        android:scaleType="centerCrop"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/product_detail_size">
+
+        <TextView
+            android:id="@+id/order_name"
+            android:layout_marginTop="@dimen/twelve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Order_name_style"
+            android:text="@string/tables"/>
+
+        <TextView
+            android:id="@+id/order_type"
+            android:layout_marginTop="@dimen/five"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Order_type_style"
+            android:text="@string/tables"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/twelve"
+            android:layout_marginBottom="@dimen/twelve">
+
+            <TextView
+                android:id="@+id/order_qty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/description_style"
+                android:text="@string/tables"/>
+
+            <TextView
+                android:id="@+id/order_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="36dp"
+                android:text="TextView"
+                style="@style/description_style"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

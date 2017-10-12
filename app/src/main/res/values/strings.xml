@@ -61,4 +61,7 @@
     <string name="order_id">Order ID:</string>
     <string name="order_date">Order Date:</string>
 
+    <string name="total">TOTAL</string>
+
+
 </resources>

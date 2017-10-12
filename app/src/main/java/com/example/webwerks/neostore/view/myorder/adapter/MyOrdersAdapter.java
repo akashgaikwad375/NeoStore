@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.webwerks.neostore.R;
+import com.example.webwerks.neostore.view.myorder.activity.OrderIdActivity;
+import com.example.webwerks.neostore.view.product.activity.ProductDetailsActivity;
 
 public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.CustomViewHolder> {
 
@@ -40,21 +42,29 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.Custom
 
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView OrderNo;
+        TextView orderNo,date,price;
 
         public CustomViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            OrderNo = itemView.findViewById(R.id.order_no);
+            orderNo = itemView.findViewById(R.id.order_no);
+            date = itemView.findViewById(R.id.date);
+            price = itemView.findViewById(R.id.price);
         }
 
 
         public void bind(int position) {
-            OrderNo.setText(""+position);
+            orderNo.setText(""+position);
+            date.setText(""+position);
+            price.setText("Rs. "+position);
         }
 
         @Override
         public void onClick(View view) {
+            Toast.makeText(view.getContext(), (getAdapterPosition()+1)+" OF "+5, Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(context,OrderIdActivity.class);
+            intent.putExtra("Data",orderNo.getText().toString());
+            view.getContext().startActivity(intent);
         }
     }
 }

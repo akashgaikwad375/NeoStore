@@ -24,6 +24,7 @@
     <color name="colorAddressRadioButton">#8E8E8E</color>
     <color name="colorOrderId">#1c1c1c</color>
     <color name="colorGreen">#00FF00</color>
+    <color name="colorOrderType">#6B6B6B</color>
 
 
 </resources>

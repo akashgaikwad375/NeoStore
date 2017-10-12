@@ -104,7 +104,7 @@
     </style>
     <style name="description_style">
         <item name="android:textColor">@color/colorAddress</item>
-        <item name="android:textSize">@dimen/twelve</item>
+        <item name="android:textSize">@dimen/thirteen</item>
     </style>
 
     <style name="Rate_Button">
@@ -145,4 +145,16 @@
         <item name="android:textColor">@color/colorGray</item>
         <item name="android:textSize">@dimen/twelve</item>
     </style>
+
+    <style name="Order_name_style">
+        <item name="android:textColor">@color/colorOrderId</item>
+        <item name="android:textSize">@dimen/twenty</item>
+    </style>
+
+    <style name="Order_type_style">
+        <item name="android:textColor">@color/colorOrderType</item>
+        <item name="android:textSize">@dimen/profile_email</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
 </resources>

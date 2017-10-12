@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.webwerks.neostore.view.myorder.activity.OrderIdActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/orderRecyclerView"
+                layout="@layout/recyclerview" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/orderRecyclerView"
+                android:layout_marginStart="@dimen/thirty"
+                android:layout_marginTop="@dimen/thirty"
+                android:text="@string/total"
+                style="@style/product_name_style"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/orderRecyclerView"
+                android:layout_marginEnd="@dimen/thirty"
+                android:layout_marginTop="@dimen/thirty"
+                android:text="TextView"
+                style="@style/product_name_style"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_below="@+id/total"
+                android:layout_marginTop="@dimen/thirty"
+                android:layout_marginBottom="@dimen/hundred"
+                android:background="?android:attr/listDivider" />
+        </RelativeLayout>
+    </ScrollView>
+
+
+</LinearLayout>

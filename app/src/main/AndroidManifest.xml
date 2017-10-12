@@ -24,7 +24,8 @@
         <activity android:name=".view.address.activity.AddAddressActivity" />
         <activity android:name=".view.product.activity.ProductDetailsActivity" />
         <activity android:name=".view.address.activity.AddressListActivity" />
-        <activity android:name=".view.myorder.activity.MyOrdersActivity"></activity>
+        <activity android:name=".view.myorder.activity.MyOrdersActivity" />
+        <activity android:name=".view.myorder.activity.OrderIdActivity"></activity>
     </application>
 
 </manifest>
