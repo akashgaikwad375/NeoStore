@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorRed"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.example.webwerks.neostore.view.myprofile.EditProfileActivity">
+
+    <include layout="@layout/toolbar"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/edt_profile_image"
+                android:layout_width="@dimen/profile_image_width"
+                android:layout_height="@dimen/profile_image_height"
+                android:layout_marginTop="@dimen/twenty"
+                android:src="@drawable/slider_img2"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:id="@+id/edtfirstname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:inputType="textPersonName"
+                android:hint="@string/firstname"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
+                style="@style/EditText_Field"
+                android:layout_below="@+id/edt_profile_image"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:id="@+id/edtlastname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/edtfirstname"
+                android:layout_below="@+id/edtfirstname"
+                android:layout_marginTop="10dp"
+                android:inputType="textPersonName"
+                android:hint="@string/lastname"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
+                style="@style/EditText_Field" />
+
+            <EditText
+                android:id="@+id/edtemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/edtlastname"
+                android:layout_below="@+id/edtlastname"
+                android:layout_marginTop="10dp"
+                android:inputType="textEmailAddress"
+                android:hint="@string/email"
+                android:drawableLeft="@drawable/ic_email_black_24dp"
+                style="@style/EditText_Field"/>
+
+
+            <EditText
+                android:id="@+id/edtphone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/edtemail"
+                android:layout_below="@+id/edtemail"
+                android:layout_marginTop="10dp"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:hint="@string/phone_no"
+                android:drawableLeft="@drawable/ic_phone_android_black_24dp"
+                style="@style/EditText_Field"/>
+
+            <EditText
+                android:id="@+id/edtdob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/edtphone"
+                android:layout_below="@+id/edtphone"
+                android:layout_marginTop="10dp"
+                android:inputType="textPassword"
+                android:hint="@string/dob"
+                android:drawableLeft="@drawable/ic_cake_black_24dp"
+                style="@style/EditText_Field"/>
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submit"
+                style="@style/Button"
+                android:layout_marginTop="13dp"
+                android:layout_below="@id/edtdob"
+                android:layout_alignStart="@+id/edtdob" />
+
+        </RelativeLayout>
+
+</LinearLayout>

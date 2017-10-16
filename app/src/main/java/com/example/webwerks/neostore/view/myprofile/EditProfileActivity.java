@@ -1,70 +1,60 @@
-package com.example.webwerks.neostore.view.address.activity;
+package com.example.webwerks.neostore.view.myprofile;
 
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
-import com.example.webwerks.neostore.view.home.activity.HomeActivity;
 import com.example.webwerks.neostore.view.login.ResetPasswordActivity;
-import com.example.webwerks.neostore.view.myprofile.MyAccountActivity;
 
-public class AddAddressActivity extends BaseActivity implements View.OnClickListener {
+public class EditProfileActivity extends BaseActivity {
 
     private Toolbar toolbar;
     private TextView title;
-    private Button btnSaveAddress;
-
     @Override
-    public int getContentView() {
-        return R.layout.activity_add_address;
+    protected int getContentView() {
+        return R.layout.activity_edit_profile;
     }
 
     @Override
-    public void initView() {
+    protected void initView() {
         toolbar = findViewById(R.id.toolbar);
         title = toolbar.findViewById(R.id.title);
-        btnSaveAddress=findViewById(R.id.btnSaveAddress);
     }
 
     @Override
-    public void setListener() {
-        btnSaveAddress.setOnClickListener(this);
+    protected void setListener() {
     }
 
     @Override
-    public void setActionBar() {
+    protected void setActionBar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left_black_24dp);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        title.setText(R.string.add_address);
+        title.setText(R.string.editprofile);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()){
             case android.R.id.home: onBackPressed();
-                break;
+                return true;
         }
         return true;
     }
 
-    @Override
-    public void onClick(View view) {
-        Intent i=new Intent(AddAddressActivity.this, AddressListActivity.class);
-        startActivity(i);
-    }
 }

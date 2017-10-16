@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="@string/gender"
-                    style="@style/NewAccount_Forgot_TextView_Style"/>
+                    style="@style/txtNewAccount_Style"/>
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -118,7 +118,7 @@
                         android:text="@string/male"
                         android:textAlignment="center"
                         android:button="@drawable/radiobutton_state"
-                        style="@style/NewAccount_Forgot_TextView_Style"/>
+                        style="@style/txtNewAccount_Style"/>
 
                     <RadioButton
                         android:id="@+id/female"
@@ -129,7 +129,7 @@
                         android:text="@string/female"
                         android:textAlignment="center"
                         android:button="@drawable/radiobutton_state"
-                        style="@style/NewAccount_Forgot_TextView_Style"/>
+                        style="@style/txtNewAccount_Style"/>
 
                 </RadioGroup>
                 </LinearLayout>
@@ -162,14 +162,14 @@
                     android:text="@string/agree"
                     android:paddingLeft="10dp"
                     android:button="@drawable/checkbox_state"
-                    style="@style/NewAccount_Forgot_TextView_Style"/>
+                    style="@style/txtNewAccount_Style"/>
                 <TextView
                     android:id="@+id/terms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="5dp"
                     android:text="@string/terms_condition"
-                    style="@style/NewAccount_Forgot_TextView_Style"/>
+                    style="@style/txtNewAccount_Style"/>
             </LinearLayout>
 
 

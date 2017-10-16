@@ -28,4 +28,7 @@
     <dimen name="pd_height">190dp</dimen>
     <dimen name="pd_image_width">120dp</dimen>
     <dimen name="pd_image_height">90dp</dimen>
+
+    <dimen name="profile_image_width">133dp</dimen>
+    <dimen name="profile_image_height">133dp</dimen>
 </resources>

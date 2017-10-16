@@ -27,7 +27,10 @@
         <activity android:name=".view.myorder.activity.MyOrdersActivity" />
         <activity android:name=".view.myorder.activity.OrderIdActivity" />
         <activity android:name=".view.login.ForgotPasswordActivity" />
-        <activity android:name=".view.mycart.activity.MyCartActivity"></activity>
+        <activity android:name=".view.mycart.activity.MyCartActivity" />
+        <activity android:name=".view.login.ResetPasswordActivity" />
+        <activity android:name=".view.myprofile.MyAccountActivity" />
+        <activity android:name=".view.myprofile.EditProfileActivity"></activity>
     </application>
 
 </manifest>

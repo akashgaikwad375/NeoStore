@@ -22,6 +22,7 @@ import com.example.webwerks.neostore.view.home.adapter.HomeBannerSliderAdapter;
 import com.example.webwerks.neostore.view.login.LoginActivity;
 import com.example.webwerks.neostore.view.mycart.activity.MyCartActivity;
 import com.example.webwerks.neostore.view.myorder.activity.MyOrdersActivity;
+import com.example.webwerks.neostore.view.myprofile.MyAccountActivity;
 import com.example.webwerks.neostore.view.product.activity.ProductListingActivity;
 
 import java.util.Timer;
@@ -173,12 +174,28 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
                 i=new Intent(HomeActivity.this,MyCartActivity.class);
                 startActivity(i);
                 break;
-            case R.id.table_action: return true;
-            case R.id.sofas_action: return true;
-            case R.id.chairs_action: return true;
-            case R.id.cupboards_action: return true;
+            case R.id.table_action:
+                i=new Intent(HomeActivity.this, ProductListingActivity.class);
+                i.putExtra("Title","Tables");
+                startActivity(i);
+                break;
+            case R.id.sofas_action:
+                i=new Intent(HomeActivity.this, ProductListingActivity.class);
+                i.putExtra("Title","Sofas");
+                startActivity(i);
+                break;
+            case R.id.chairs_action:
+                i=new Intent(HomeActivity.this, ProductListingActivity.class);
+                i.putExtra("Title","Chairs");
+                startActivity(i);
+                break;
+            case R.id.cupboards_action:
+                i=new Intent(HomeActivity.this, ProductListingActivity.class);
+                i.putExtra("Title","Cupboards");
+                startActivity(i);
+                break;
             case R.id.my_account_action:
-                i=new Intent(HomeActivity.this, AddressListActivity.class);
+                i=new Intent(HomeActivity.this, MyAccountActivity.class);
                 startActivity(i);
                 break;
             case R.id.my_address_action:

@@ -29,7 +29,7 @@
         <item name="android:textSize">@dimen/login_button_size</item>
     </style>
 
-    <style name="NewAccount_Forgot_TextView_Style">
+    <style name="txtNewAccount_Style">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">@dimen/new_account_size</item>
     </style>
@@ -154,6 +154,12 @@
     <style name="Order_type_style">
         <item name="android:textColor">@color/colorOrderType</item>
         <item name="android:textSize">@dimen/profile_email</item>
+    </style>
+
+    <style name="Reset_button_style">
+        <item name="android:background">@drawable/reset_button_field</item>
+        <item name="android:textColor">@color/colorAddress</item>
+        <item name="android:textSize">@dimen/seventeen</item>
     </style>
 
 </resources>

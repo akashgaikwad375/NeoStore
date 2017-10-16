@@ -58,7 +58,7 @@
         android:layout_below="@+id/login"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
-        style="@style/NewAccount_Forgot_TextView_Style"/>
+        style="@style/txtNewAccount_Style"/>
 
     <TextView
         android:id="@+id/newaccount"
@@ -69,7 +69,7 @@
         android:layout_marginBottom="30dp"
         android:paddingBottom="10dp"
         android:layout_marginLeft="20dp"
-        style="@style/NewAccount_Forgot_TextView_Style"/>
+        style="@style/txtNewAccount_Style"/>
 
     <ImageView
         android:id="@+id/addaccount"

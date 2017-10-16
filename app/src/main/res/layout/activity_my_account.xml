@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorRed"
+    tools:context="com.example.webwerks.neostore.view.myprofile.MyAccountActivity">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/tbMyAccount"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="@dimen/profile_image_width"
+        android:layout_height="@dimen/profile_image_height"
+        android:layout_marginTop="@dimen/twenty"
+        android:src="@drawable/slider_img2"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/tbMyAccount"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:id="@+id/llUserDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/profile_image">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/twenty"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/txtFirstname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/firstname"
+                android:paddingLeft="@dimen/thirty"
+                style="@style/txtNewAccount_Style"/>
+
+            <TextView
+                android:id="@+id/txtFirstName"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/thirty"
+                android:layout_height="wrap_content"
+                style="@style/txtNewAccount_Style"
+                android:text="@string/firstname"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/twenty"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/txtLastname"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lastname"
+                android:paddingLeft="@dimen/thirty"
+                style="@style/txtNewAccount_Style"/>
+
+            <TextView
+                android:id="@+id/txtLastName"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/thirty"
+                android:layout_height="wrap_content"
+                style="@style/txtNewAccount_Style"
+                android:text="@string/lastname"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/twenty"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/txtNewAccount_Style"
+                android:paddingLeft="@dimen/thirty"
+                android:text="@string/email" />
+
+            <TextView
+                android:id="@+id/txtEmailId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/thirty"
+                style="@style/txtNewAccount_Style"
+                android:text="@string/email" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/twenty"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/txtContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/txtNewAccount_Style"
+                android:paddingLeft="@dimen/thirty"
+                android:text="@string/phone_no" />
+
+            <TextView
+                android:id="@+id/txtContactNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/thirty"
+                style="@style/txtNewAccount_Style"
+                android:text="@string/phone_no" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/twenty"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/txtDOB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/txtNewAccount_Style"
+                android:paddingLeft="@dimen/thirty"
+                android:text="@string/dob" />
+
+            <TextView
+                android:id="@+id/txtdob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="@dimen/thirty"
+                style="@style/txtNewAccount_Style"
+                android:text="@string/dob" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/thirty"
+        android:layout_below="@id/llUserDetails"
+        android:text="@string/edit_profile"
+        style="@style/Button"/>
+
+    <Button
+        android:id="@+id/btnResetPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/reset_password"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        style="@style/Reset_button_style"/>
+
+</RelativeLayout>

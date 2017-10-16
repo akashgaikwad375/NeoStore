@@ -124,7 +124,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/save_address"
+            android:id="@+id/btnSaveAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/save_address_button"
