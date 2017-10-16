@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context="com.example.webwerks.neostore.view.myorder.activity.OrderIdActivity">
+    tools:context="com.example.webwerks.neostore.view.mycart.activity.MyCartActivity">
 
     <include layout="@layout/toolbar"/>
 
@@ -34,7 +34,7 @@
                 style="@style/product_name_style"/>
 
             <TextView
-                android:id="@+id/txtCost"
+                android:id="@+id/textPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -45,12 +45,23 @@
                 style="@style/product_name_style"/>
 
             <View
+                android:id="@+id/viewLine"
                 android:layout_width="wrap_content"
                 android:layout_height="2dp"
                 android:layout_below="@+id/total"
                 android:layout_marginTop="@dimen/thirty"
-                android:layout_marginBottom="@dimen/hundred"
                 android:background="?android:attr/listDivider" />
+            <Button
+                android:id="@+id/save_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/order_now"
+                style="@style/Save_Button"
+                android:layout_below="@+id/viewLine"
+                android:layout_marginTop="@dimen/thirty_three"
+                android:layout_marginLeft="@dimen/sixteen"
+                android:layout_marginBottom="@dimen/thirty"
+                android:layout_marginRight="@dimen/sixteen" />
         </RelativeLayout>
     </ScrollView>
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+        <size android:width="50dp"
+            android:height="@dimen/thirty"/>
+        <solid android:color="@color/colorAddressBackground"/>
+        </shape>
+    </item>
+    <item
+        android:height="@dimen/twenty"
+        android:width="@dimen/twenty"
+        android:gravity="center_vertical|end"
+        android:drawable="@drawable/ic_keyboard_arrow_down_black_24dp"/>
+</layer-list>

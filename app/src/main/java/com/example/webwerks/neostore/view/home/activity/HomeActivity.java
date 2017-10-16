@@ -19,6 +19,8 @@ import com.example.webwerks.neostore.common.base.BaseActivity;
 import com.example.webwerks.neostore.view.address.activity.AddAddressActivity;
 import com.example.webwerks.neostore.view.address.activity.AddressListActivity;
 import com.example.webwerks.neostore.view.home.adapter.HomeBannerSliderAdapter;
+import com.example.webwerks.neostore.view.login.LoginActivity;
+import com.example.webwerks.neostore.view.mycart.activity.MyCartActivity;
 import com.example.webwerks.neostore.view.myorder.activity.MyOrdersActivity;
 import com.example.webwerks.neostore.view.product.activity.ProductListingActivity;
 
@@ -167,7 +169,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
         drawerLayout.closeDrawers();
         Intent i;
         switch (item.getItemId()){
-            case R.id.my_cart_action: return true;
+            case R.id.my_cart_action:
+                i=new Intent(HomeActivity.this,MyCartActivity.class);
+                startActivity(i);
+                break;
             case R.id.table_action: return true;
             case R.id.sofas_action: return true;
             case R.id.chairs_action: return true;

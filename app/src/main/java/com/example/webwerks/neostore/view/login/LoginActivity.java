@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
 import com.example.webwerks.neostore.view.home.activity.HomeActivity;
+import com.example.webwerks.neostore.view.mycart.activity.MyCartActivity;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
@@ -40,6 +41,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     public void setListener() {
         addaccount.setOnClickListener(this);
         login.setOnClickListener(this);
+        forgotpass.setOnClickListener(this);
     }
 
     @Override
@@ -57,6 +59,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 break;
             case R.id.login:
                 intent=new Intent(LoginActivity.this,HomeActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.forgotPass:
+                intent=new Intent(LoginActivity.this,ForgotPasswordActivity.class);
                 startActivity(intent);
                 break;
         }

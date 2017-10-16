@@ -154,7 +154,6 @@
     <style name="Order_type_style">
         <item name="android:textColor">@color/colorOrderType</item>
         <item name="android:textSize">@dimen/profile_email</item>
-        <item name="android:textStyle">italic</item>
     </style>
 
 </resources>

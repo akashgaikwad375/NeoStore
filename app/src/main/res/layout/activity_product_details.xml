@@ -102,6 +102,15 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="@dimen/twelve" />
+
+                    <TextView
+                        android:id="@+id/txtOutOfStock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/share"
+                        android:layout_marginEnd="20dp"
+                        android:layout_toStartOf="@+id/share"
+                        android:text="TextView" />
                 </RelativeLayout>
 
                 <android.support.v4.view.ViewPager

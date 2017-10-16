@@ -47,7 +47,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/btnEnterSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit"
@@ -56,5 +56,7 @@
         android:layout_alignEnd="@+id/productimage"
         android:layout_marginEnd="23dp"
         android:layout_marginBottom="@dimen/twenty_five"
-        android:layout_marginTop="@dimen/twenty_five" />
+        android:layout_marginTop="@dimen/twenty_five"
+        android:clickable="true"
+        />
 </RelativeLayout>
