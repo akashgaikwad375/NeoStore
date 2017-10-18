@@ -1,6 +1,8 @@
 package com.example.webwerks.neostore.view.home.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.ViewPager;
@@ -17,9 +19,8 @@ import android.widget.TextView;
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
 import com.example.webwerks.neostore.view.address.activity.AddAddressActivity;
-import com.example.webwerks.neostore.view.address.activity.AddressListActivity;
 import com.example.webwerks.neostore.view.home.adapter.HomeBannerSliderAdapter;
-import com.example.webwerks.neostore.view.login.LoginActivity;
+import com.example.webwerks.neostore.view.login.activity.LoginActivity;
 import com.example.webwerks.neostore.view.mycart.activity.MyCartActivity;
 import com.example.webwerks.neostore.view.myorder.activity.MyOrdersActivity;
 import com.example.webwerks.neostore.view.myprofile.MyAccountActivity;
@@ -207,9 +208,17 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
                 i=new Intent(HomeActivity.this, MyOrdersActivity.class);
                 startActivity(i);
                 break;
-            case R.id.logout_action: return true;
+            case R.id.logout_action:
+                SharedPreferences sharedPref =getApplicationContext().getSharedPreferences("Login_preference",
+                        Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.clear().apply();
+                Intent intent=new Intent(this,LoginActivity.class);
+                startActivity(intent);
+                finish();
         }
         return true;
     }
+
 }
 

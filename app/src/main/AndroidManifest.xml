@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.login.LoginActivity">
+        <activity android:name=".view.login.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.login.RegisterActivity" />
+        <activity android:name=".view.login.activity.RegisterActivity" />
         <activity android:name=".view.home.activity.HomeActivity" />
         <activity android:name=".view.product.activity.ProductListingActivity" />
         <activity android:name=".view.address.activity.AddAddressActivity" />
@@ -26,9 +26,9 @@
         <activity android:name=".view.address.activity.AddressListActivity" />
         <activity android:name=".view.myorder.activity.MyOrdersActivity" />
         <activity android:name=".view.myorder.activity.OrderIdActivity" />
-        <activity android:name=".view.login.ForgotPasswordActivity" />
+        <activity android:name=".view.login.activity.ForgotPasswordActivity" />
         <activity android:name=".view.mycart.activity.MyCartActivity" />
-        <activity android:name=".view.login.ResetPasswordActivity" />
+        <activity android:name=".view.login.activity.ResetPasswordActivity" />
         <activity android:name=".view.myprofile.MyAccountActivity" />
         <activity android:name=".view.myprofile.EditProfileActivity"></activity>
     </application>

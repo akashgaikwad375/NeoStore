@@ -39,7 +39,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.CustomView
         return 5;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView orderImage;
         Spinner spnQuantity;

@@ -16,13 +16,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/address"
-            android:layout_marginTop="@dimen/twenty_seven"
+            android:layout_marginTop="@dimen/twenty"
             android:layout_marginLeft="@dimen/sixteen"
             android:layout_marginRight="@dimen/sixteen"
             style="@style/address_style"/>
         <EditText
             android:id="@+id/address"
-            android:layout_marginTop="@dimen/sixteen"
+            android:layout_marginTop="@dimen/twelve"
             android:layout_marginLeft="@dimen/sixteen"
             android:layout_marginRight="@dimen/sixteen"
             android:layout_width="match_parent"
@@ -37,14 +37,14 @@
             android:layout_marginLeft="@dimen/sixteen"
             android:layout_marginRight="@dimen/sixteen"
             android:text="@string/city"
-            android:layout_marginTop="@dimen/twenty_seven"
+            android:layout_marginTop="@dimen/twenty_two"
             style="@style/address_style"/>
         <EditText
             android:id="@+id/city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/sixteen"
-            android:layout_marginTop="@dimen/sixteen"
+            android:layout_marginTop="@dimen/twelve"
             android:layout_marginRight="@dimen/sixteen"
             style="@style/address_Field_style" />
         <LinearLayout
@@ -53,7 +53,7 @@
             android:orientation="horizontal"
             android:layout_marginLeft="@dimen/sixteen"
             android:layout_marginRight="@dimen/sixteen"
-            android:layout_marginTop="@dimen/twenty_seven"
+            android:layout_marginTop="@dimen/twenty_two"
             android:weightSum="2">
 
             <LinearLayout
@@ -78,7 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/zip_code"
-                    android:layout_marginTop="@dimen/twenty_seven"
+                    android:layout_marginTop="@dimen/twenty_two"
                     style="@style/address_style"/>
                 <EditText
                     android:id="@+id/zip_code"
@@ -112,7 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/country"
-                    android:layout_marginTop="@dimen/twenty_seven"
+                    android:layout_marginTop="@dimen/twenty_two"
                     style="@style/address_style"/>
                 <EditText
                     android:id="@+id/country"
@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:text="@string/save_address_button"
             style="@style/Save_Button"
-            android:layout_marginTop="@dimen/twenty_seven"
+            android:layout_marginTop="@dimen/twenty"
             android:layout_marginLeft="@dimen/sixteen"
             android:layout_marginRight="@dimen/sixteen" />
 

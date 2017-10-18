@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true">
 
     <ImageView
-        android:id="@+id/pd_image"
+        android:id="@+id/imgPd_image"
         android:layout_width="@dimen/pd_image_width"
         android:layout_height="@dimen/pd_image_height"
         android:layout_marginLeft="@dimen/five"

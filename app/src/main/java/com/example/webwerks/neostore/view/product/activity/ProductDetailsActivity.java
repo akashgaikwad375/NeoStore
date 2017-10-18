@@ -71,7 +71,7 @@ public class ProductDetailsActivity extends BaseActivity implements ViewPager.On
         LinearLayoutManager layoutManager=new LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL,false);
         pdList.setLayoutManager(layoutManager);
-        mAdapter= new ProductDetailsAdapter(this);
+        mAdapter= new ProductDetailsAdapter(this,viewPager);
         pdList.setAdapter(mAdapter);
     }
 
@@ -96,11 +96,8 @@ public class ProductDetailsActivity extends BaseActivity implements ViewPager.On
                 dialogFragment=new RatingPopUpFragment();
                 dialogFragment.show(getSupportFragmentManager(),"rate_product");
                 break;
-
         }
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

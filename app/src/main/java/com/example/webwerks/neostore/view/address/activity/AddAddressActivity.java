@@ -1,7 +1,6 @@
 package com.example.webwerks.neostore.view.address.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,9 +10,6 @@ import android.widget.TextView;
 
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
-import com.example.webwerks.neostore.view.home.activity.HomeActivity;
-import com.example.webwerks.neostore.view.login.ResetPasswordActivity;
-import com.example.webwerks.neostore.view.myprofile.MyAccountActivity;
 
 public class AddAddressActivity extends BaseActivity implements View.OnClickListener {
 

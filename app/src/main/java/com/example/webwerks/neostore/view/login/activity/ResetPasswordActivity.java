@@ -1,4 +1,4 @@
-package com.example.webwerks.neostore.view.login;
+package com.example.webwerks.neostore.view.login.activity;
 
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
