@@ -1,23 +1,35 @@
 package com.example.webwerks.neostore.view.login.activity;
 
 import android.graphics.Paint;
-import android.graphics.Typeface;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
+import com.example.webwerks.neostore.common.base.HttpPostAsyncTask;
 
-public class RegisterActivity extends BaseActivity {
+import java.util.HashMap;
+import java.util.Map;
+
+public class RegisterActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
     private Toolbar toolbar;
-    private TextView terms, agree, header, gender, male, female;
+    private TextView terms, agree, header, male, female;
     private EditText firstname,lastname,email,confirmPass, password,phone;
     private Button register;
+    private CheckBox cbAgree;
+    private RadioGroup rgGender;
+    String stGender="M";
+    private Boolean check=false;
+    private String url="http://staging.php-dev.in:8844/trainingapp/api/users/register";
 
     @Override
     public int getContentView() {
@@ -29,9 +41,10 @@ public class RegisterActivity extends BaseActivity {
         agree=findViewById(R.id.agree);
         terms=findViewById(R.id.terms);
         header=findViewById(R.id.registerheader);
-        gender=findViewById(R.id.gender);
-        male=findViewById(R.id.male);
-        female=findViewById(R.id.female);
+
+        rgGender=findViewById(R.id.rgGender);
+        male=findViewById(R.id.btnMale);
+        female=findViewById(R.id.btnFemale);
 
         firstname=findViewById(R.id.firstname);
         lastname=findViewById(R.id.lastname);
@@ -39,25 +52,27 @@ public class RegisterActivity extends BaseActivity {
         password=findViewById(R.id.pass);
         confirmPass=findViewById(R.id.confirmpass);
         phone=findViewById(R.id.phone);
+
+        cbAgree=findViewById(R.id.agree);
         register=findViewById(R.id.register);
 
         toolbar=findViewById(R.id.toolbar);
         terms.setPaintFlags(terms.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
-
     }
-
 
     @Override
     public void setListener() {
+        rgGender.setOnCheckedChangeListener(this);
+        cbAgree.setOnCheckedChangeListener(this);
+        register.setOnClickListener(this);
+       }
+
+    @Override
+    public void setActionBar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left_black_24dp);
-    }
-
-    @Override
-    public void setActionBar() {
-
     }
 
     @Override
@@ -67,5 +82,51 @@ public class RegisterActivity extends BaseActivity {
                                     break;
         }
         return true;
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+       if(i==R.id.btnFemale)
+           stGender="F";
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        if(b)
+            check=true;
+        else check=false;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (check) {
+            if (firstname.getText().toString().equals(""))
+                firstname.setError("First Name required");
+            else if (lastname.getText().toString().equals(""))
+                lastname.setError("Last Name required");
+            else if (email.getText().toString().equals(""))
+                email.setError("Email Id required");
+            else if (password.getText().toString().equals(""))
+                password.setError("Password required");
+            else if (confirmPass.getText().toString().equals(""))
+                confirmPass.setError("Password required");
+            else if (phone.getText().toString().equals(""))
+                phone.setError("Phone no. required");
+            else {
+                Map<String, Object> data = new HashMap<>();
+                data.put("first_name", firstname.getText().toString());
+                data.put("last_name", lastname.getText().toString());
+                data.put("email", email.getText().toString());
+                data.put("password", password.getText().toString());
+                data.put("confirm_password", confirmPass.getText().toString());
+                data.put("gender", stGender);
+                data.put("phone_no", phone.getText().toString());
+                HttpPostAsyncTask httpPostAsyncTask = new HttpPostAsyncTask(data, this);
+                httpPostAsyncTask.execute(url);
+            }
+        }
+        else
+            Toast.makeText(RegisterActivity.this, "Please accept the terms & conditions", Toast.LENGTH_SHORT).show();
     }
 }

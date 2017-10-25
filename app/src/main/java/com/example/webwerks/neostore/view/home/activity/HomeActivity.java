@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
+import com.example.webwerks.neostore.model.RegisterationModel;
 import com.example.webwerks.neostore.view.address.activity.AddAddressActivity;
 import com.example.webwerks.neostore.view.home.adapter.HomeBannerSliderAdapter;
 import com.example.webwerks.neostore.view.login.activity.LoginActivity;
@@ -37,11 +39,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
-    private TextView title;
+    private TextView title,txtUsername,txtEmail;
     private ViewPager viewPager;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private ImageView tables,sofas,chairs,cupboards;
     private static int current_page=0;
+    Layout layout;
 
     @Override
     public int getContentView() {
@@ -60,7 +63,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
         sofas=findViewById(R.id.sofas_image);
         chairs=findViewById(R.id.chairs_image);
         cupboards=findViewById(R.id.cupboards_image);
-
     }
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

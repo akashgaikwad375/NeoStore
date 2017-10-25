@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,14 +12,19 @@ import android.widget.TextView;
 
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
+import com.example.webwerks.neostore.common.base.HttpPostAsyncTask;
 import com.example.webwerks.neostore.view.home.activity.HomeActivity;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView loginheader, forgotpass, newaccount;
-    private EditText username, password;
+    private EditText emailid, password;
     private Button login;
     private ImageView addaccount;
+    private String url="http://staging.php-dev.in:8844/trainingapp/api/users/login";
 
     private static final String TAG = LoginActivity.class.getSimpleName();
     @Override
@@ -31,7 +35,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     public void initView() {
         loginheader=findViewById(R.id.loginheader);
-        username=findViewById(R.id.username);
+        emailid=findViewById(R.id.edtEmail);
         password=findViewById(R.id.password);
         forgotpass=findViewById(R.id.forgotPass);
         newaccount=findViewById(R.id.newaccount);
@@ -79,21 +83,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void validate() {
-        if(!TextUtils.isEmpty(username.getText().toString()) && !TextUtils.isEmpty(password.getText().toString()))
+        if(!TextUtils.isEmpty(emailid.getText().toString()) && !TextUtils.isEmpty(password.getText().toString()))
         {
-            SharedPreferences sharedPref = getApplicationContext()
-                    .getSharedPreferences("Login_preference",
-                            Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString("username", String.valueOf(username.getText()));
-            editor.putString("password", String.valueOf(password.getText()));
-            editor.commit();
-            Intent i=new Intent(this,HomeActivity.class);
-            startActivity(i);
-            finish();
+            Map<String, Object> data = new HashMap<>();
+            data.put("email", emailid.getText().toString());
+            data.put("password", password.getText().toString());
+            LoginAsyncTask loginAsyncTask = new LoginAsyncTask(data,this);
+            loginAsyncTask.execute(url);
+
         }else {
-            if (TextUtils.isEmpty(username.getText().toString())) {
-                username.setError("Username is required");
+            if (TextUtils.isEmpty(emailid.getText().toString())) {
+                emailid.setError("Username is required");
             }
             if (TextUtils.isEmpty(password.getText().toString())) {
                 password.setError("Password is required");

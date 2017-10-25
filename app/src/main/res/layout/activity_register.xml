@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorRed"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="com.example.webwerks.neostore.view.login.activity.RegisterActivity">
 
@@ -103,6 +104,7 @@
                     style="@style/txtNewAccount_Style"/>
 
                 <RadioGroup
+                    android:id="@+id/rgGender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -111,17 +113,18 @@
                     android:layout_marginLeft="20dp">
 
                     <RadioButton
-                        android:id="@+id/male"
+                        android:id="@+id/btnMale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/male"
+                        android:checked="true"
                         android:textAlignment="center"
                         android:button="@drawable/radiobutton_state"
                         style="@style/txtNewAccount_Style"/>
 
                     <RadioButton
-                        android:id="@+id/female"
+                        android:id="@+id/btnFemale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
