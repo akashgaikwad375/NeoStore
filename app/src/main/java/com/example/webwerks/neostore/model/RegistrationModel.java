@@ -1,6 +1,8 @@
 package com.example.webwerks.neostore.model;
 
-public class RegisterationModel {
+import android.util.Log;
+
+public class RegistrationModel {
 
     private int id;
     private int role_id;
@@ -8,6 +10,7 @@ public class RegisterationModel {
             country_id,gender,dob,created,modified,access_token;
     private int phone_no;
     private Boolean is_active;
+    private static final String TAG = RegistrationModel.class.getSimpleName();
 
     public int getId() {
         return id;
@@ -42,11 +45,14 @@ public class RegisterationModel {
     }
 
     public String getEmail() {
+        Log.e(TAG, "getEmail: "+email );
         return email;
+
     }
 
     public void setEmail(String email) {
         this.email = email;
+
     }
 
     public String getUsername() {

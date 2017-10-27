@@ -5,10 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.webwerks.neostore.model.RegisterationModel;
+import com.example.webwerks.neostore.model.RegistrationModel;
 import com.example.webwerks.neostore.view.home.activity.HomeActivity;
 
 import org.json.JSONException;
@@ -30,7 +31,8 @@ class LoginAsyncTask extends AsyncTask<String,Void,String> {
     private Map<String, Object> mdata;
     private Context context;
     int statusCode;
-    StringBuffer sb = new StringBuffer("");;
+    HttpURLConnection connection;
+    StringBuffer sb = new StringBuffer("");
 
     public LoginAsyncTask(Map<String, Object> data, LoginActivity loginActivity) {
 
@@ -43,7 +45,7 @@ class LoginAsyncTask extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... strings) {
         try {
             URL url=new URL(strings[0]);
-            HttpURLConnection connection= (HttpURLConnection) url.openConnection();
+            connection= (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.setDoOutput(true);
             connection.setRequestProperty("Content_Type","applicaton/form-data");
@@ -77,6 +79,8 @@ class LoginAsyncTask extends AsyncTask<String,Void,String> {
             }
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+           // connection.disconnect();
         }
         return sb.toString();
 
@@ -91,7 +95,7 @@ class LoginAsyncTask extends AsyncTask<String,Void,String> {
                 JSONObject jsonObject=new JSONObject(s);
                 int status=jsonObject.optInt("status");
                 JSONObject dataObject=jsonObject.optJSONObject("data");
-                RegisterationModel rgModel=new RegisterationModel();
+                RegistrationModel rgModel=new RegistrationModel();
                 rgModel.setId(dataObject.optInt("id"));
                 rgModel.setRole_id(dataObject.optInt("role_id"));
                 rgModel.setFirst_name(dataObject.optString("first_name"));
@@ -111,7 +115,8 @@ class LoginAsyncTask extends AsyncTask<String,Void,String> {
                         .getSharedPreferences("Login_preference",
                                 Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString("username", String.valueOf(rgModel.getEmail()));
+                editor.putString("username", String.valueOf(rgModel.getUsername()));
+                editor.putString("email", String.valueOf(rgModel.getEmail()));
                 editor.commit();
 
                 Toast.makeText(context, "Logged In successfully", Toast.LENGTH_SHORT).show();
@@ -121,10 +126,6 @@ class LoginAsyncTask extends AsyncTask<String,Void,String> {
             }
             else{
                 Toast.makeText(context, "Username or password is wrong. try again", Toast.LENGTH_SHORT).show();
-                Intent i=new Intent(context,LoginActivity.class);
-                context.startActivity(i);
-                ((Activity)context).finish();
-
             }
             }
              catch (JSONException e) {

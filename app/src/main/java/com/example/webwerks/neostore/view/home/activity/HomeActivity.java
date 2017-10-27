@@ -10,7 +10,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +18,6 @@ import android.widget.TextView;
 
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
-import com.example.webwerks.neostore.model.RegisterationModel;
 import com.example.webwerks.neostore.view.address.activity.AddAddressActivity;
 import com.example.webwerks.neostore.view.home.adapter.HomeBannerSliderAdapter;
 import com.example.webwerks.neostore.view.login.activity.LoginActivity;
@@ -44,7 +42,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private ImageView tables,sofas,chairs,cupboards;
     private static int current_page=0;
-    Layout layout;
+    private View header;
 
     @Override
     public int getContentView() {
@@ -63,6 +61,16 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
         sofas=findViewById(R.id.sofas_image);
         chairs=findViewById(R.id.chairs_image);
         cupboards=findViewById(R.id.cupboards_image);
+
+        header=navigationView.getHeaderView(0);
+        txtUsername=(TextView) header.findViewById(R.id.user_name);
+        txtEmail=(TextView)header.findViewById(R.id.user_email);
+
+        SharedPreferences sharedPreferences= getApplicationContext().
+                getSharedPreferences("Login_preference", Context.MODE_PRIVATE);
+
+        txtUsername.setText(sharedPreferences.getString("username",""));
+        txtEmail.setText(sharedPreferences.getString("email",""));
     }
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -132,21 +140,25 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
             case R.id.tables_image:
                 i=new Intent(HomeActivity.this, ProductListingActivity.class);
                 i.putExtra("Title","Tables");
+                i.putExtra("product_category_id","1");
                 startActivity(i);
                 break;
             case R.id.sofas_image:
                 i=new Intent(HomeActivity.this, ProductListingActivity.class);
                 i.putExtra("Title","Sofas");
+                i.putExtra("product_category_id","3");
                 startActivity(i);
                 break;
             case R.id.chairs_image:
                 i=new Intent(HomeActivity.this, ProductListingActivity.class);
                 i.putExtra("Title","Chairs");
+                i.putExtra("product_category_id","2");
                 startActivity(i);
                 break;
             case R.id.cupboards_image:
                 i=new Intent(HomeActivity.this, ProductListingActivity.class);
                 i.putExtra("Title","Cupboards");
+                i.putExtra("product_category_id","4");
                 startActivity(i);
                 break;
         }
@@ -180,21 +192,25 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
             case R.id.table_action:
                 i=new Intent(HomeActivity.this, ProductListingActivity.class);
                 i.putExtra("Title","Tables");
+                i.putExtra("product_category_id","1");
                 startActivity(i);
                 break;
             case R.id.sofas_action:
                 i=new Intent(HomeActivity.this, ProductListingActivity.class);
                 i.putExtra("Title","Sofas");
+                i.putExtra("product_category_id","3");
                 startActivity(i);
                 break;
             case R.id.chairs_action:
                 i=new Intent(HomeActivity.this, ProductListingActivity.class);
                 i.putExtra("Title","Chairs");
+                i.putExtra("product_category_id","2");
                 startActivity(i);
                 break;
             case R.id.cupboards_action:
                 i=new Intent(HomeActivity.this, ProductListingActivity.class);
                 i.putExtra("Title","Cupboards");
+                i.putExtra("product_category_id","4");
                 startActivity(i);
                 break;
             case R.id.my_account_action:
