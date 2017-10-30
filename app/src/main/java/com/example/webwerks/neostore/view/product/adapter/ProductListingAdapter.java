@@ -82,7 +82,7 @@ public class ProductListingAdapter extends RecyclerView.Adapter<ProductListingAd
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(view.getContext(), (getAdapterPosition()+1)+" OF "+10, Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), (getAdapterPosition()+1)+" OF "+mdata.size(), Toast.LENGTH_SHORT).show();
             Intent intent=new Intent(context,ProductDetailsActivity.class);
             intent.putExtra("Data",productName.getText().toString());
             view.getContext().startActivity(intent);

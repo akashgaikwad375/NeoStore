@@ -1,5 +1,8 @@
 package com.example.webwerks.neostore.view.login.activity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -14,12 +17,20 @@ import android.widget.Toast;
 
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
-import com.example.webwerks.neostore.common.base.HttpPostAsyncTask;
+import com.example.webwerks.neostore.common.base.BaseAsyncTask;
+import com.example.webwerks.neostore.common.base.onAsyncTaskRequest;
+import com.example.webwerks.neostore.model.RegistrationModel;
+import com.example.webwerks.neostore.view.home.activity.HomeActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
+public class RegisterActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener,
+        CompoundButton.OnCheckedChangeListener, View.OnClickListener,
+        onAsyncTaskRequest {
 
     private Toolbar toolbar;
     private TextView terms, agree, header, male, female;
@@ -122,11 +133,46 @@ public class RegisterActivity extends BaseActivity implements RadioGroup.OnCheck
                 data.put("confirm_password", confirmPass.getText().toString());
                 data.put("gender", stGender);
                 data.put("phone_no", phone.getText().toString());
-                HttpPostAsyncTask httpPostAsyncTask = new HttpPostAsyncTask(data, this);
-                httpPostAsyncTask.execute(url);
+                BaseAsyncTask registerTask = new BaseAsyncTask(this,"POST",data);
+                registerTask.execute(url);
             }
         }
         else
             Toast.makeText(RegisterActivity.this, "Please accept the terms & conditions", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void asyncResponse(Object obj) {
+        try {
+            JSONObject jsonObject=new JSONObject((String) obj);
+            int status=jsonObject.optInt("status");
+            if(status==200){
+                JSONObject dataObject=jsonObject.optJSONObject("data");
+                RegistrationModel rgModel=new RegistrationModel();
+                rgModel.setId(dataObject.optInt("id"));
+                rgModel.setRole_id(dataObject.optInt("role_id"));
+                rgModel.setFirst_name(dataObject.optString("first_name"));
+                rgModel.setLast_name(dataObject.optString("last_name"));
+                rgModel.setEmail(dataObject.optString("email"));
+                rgModel.setUsername(dataObject.optString("username"));
+                rgModel.setProfile_pic(dataObject.optString("profile_pic"));
+                rgModel.setCountry_id(dataObject.optString("country_id"));
+                rgModel.setGender(dataObject.optString("gender"));
+                rgModel.setPhone_no(dataObject.optInt("phone_no"));
+                rgModel.setDob(dataObject.optString("dob"));
+                rgModel.setIs_active(dataObject.optBoolean("is_active"));
+                rgModel.setCreated(dataObject.optString("created"));
+                rgModel.setModified(dataObject.optString("modified"));
+                rgModel.setAccess_token(dataObject.optString("access_token"));
+                finish();
+            }
+            else{
+                Toast.makeText(this, "Email id already exist", Toast.LENGTH_SHORT).show();
+            }
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 }

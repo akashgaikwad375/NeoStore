@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
+import com.example.webwerks.neostore.common.base.BaseAsyncTask;
+import com.example.webwerks.neostore.common.base.onAsyncTaskRequest;
 import com.example.webwerks.neostore.model.ProductListModel;
 import com.example.webwerks.neostore.view.product.adapter.ProductListingAdapter;
 
@@ -42,7 +44,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ProductListingActivity extends BaseActivity {
+public class ProductListingActivity extends BaseActivity implements onAsyncTaskRequest {
 
     private Toolbar toolbar;
     private TextView title;
@@ -70,7 +72,7 @@ public class ProductListingActivity extends BaseActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         productList.setLayoutManager(layoutManager);
         productList.setHasFixedSize(true);
-        ProductListingAsyncTask task = new ProductListingAsyncTask(parameter, this);
+        BaseAsyncTask task = new BaseAsyncTask(this,"GET",parameter);
         task.execute(url);
     }
 
@@ -106,57 +108,13 @@ public class ProductListingActivity extends BaseActivity {
         return true;
     }
 
-    public class ProductListingAsyncTask extends AsyncTask<String, Void, String> {
 
-        private final String TAG = ProductListingAsyncTask.class.getSimpleName();
-        private Map<String, Object> mdata;
-        int statusCode;
-        StringBuffer sb = new StringBuffer("");
-
-        public ProductListingAsyncTask(Map<String, Object> data, ProductListingActivity productListingActivity) {
-
-            if (data != null)
-                mdata = data;
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                StringBuilder result = new StringBuilder(strings[0]);
-                result.append("?product_category_id=" + productId);
-                URL url = new URL(result.toString());
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("GET");
-                connection.connect();
-                statusCode = connection.getResponseCode();
-                if (statusCode == 200) {
-                    Log.e(TAG, "doInBackground: " + statusCode);
-                    BufferedReader in = new BufferedReader(
-                            new InputStreamReader(
-                                    connection.getInputStream()));
-                    String line = "";
-                    while ((line = in.readLine()) != null) {
-                        sb.append(line);
-                        break;
-                    }
-                    in.close();
-                    return sb.toString();
-                } else {
-                    Log.e(TAG, "doInBackground: " + statusCode);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return sb.toString();
-        }
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            Log.e("onPostExecute", s);
-            try {
-                if (statusCode == 200) {
-                    JSONObject jsonObject = new JSONObject(s);
-                    int status = jsonObject.optInt("status");
+    @Override
+    public void asyncResponse(Object obj) {
+        try {
+                JSONObject jsonObject = new JSONObject((String) obj);
+                int status = jsonObject.optInt("status");
+                if (status == 200) {
                     JSONArray dataArray = jsonObject.optJSONArray("data");
                     for (int i = 0; i < dataArray.length(); i++) {
                         JSONObject object = dataArray.getJSONObject(i);
@@ -174,22 +132,19 @@ public class ProductListingActivity extends BaseActivity {
                         plModel.setProduct_images(object.getString("product_images"));
                         data.add(plModel);
                     }
-
-                    mAdapter = new ProductListingAdapter(getApplicationContext(), data);
-                    productList.addItemDecoration(new
-                            DividerItemDecoration(getApplicationContext(),
-                            DividerItemDecoration.VERTICAL));
-                    productList.setAdapter(mAdapter);
-                    mAdapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "Error in fetching data.", Toast.LENGTH_SHORT).show();
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                mAdapter = new ProductListingAdapter(this, data);
+                productList.addItemDecoration(new
+                        DividerItemDecoration(this,
+                        DividerItemDecoration.VERTICAL));
+                productList.setAdapter(mAdapter);
+                mAdapter.notifyDataSetChanged();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "Error in fetching data.", Toast.LENGTH_SHORT).show();
             }
-
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-    }
 
+    }
 }
