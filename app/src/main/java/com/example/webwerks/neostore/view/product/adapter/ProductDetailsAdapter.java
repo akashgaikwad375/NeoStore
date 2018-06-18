@@ -8,16 +8,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 import com.example.webwerks.neostore.R;
+import com.example.webwerks.neostore.model.ProductDetailsModel;
+import com.example.webwerks.neostore.model.ProductImagesModel;
+
+import java.util.List;
 
 public class ProductDetailsAdapter extends
         RecyclerView.Adapter<ProductDetailsAdapter.CustomViewHolder> {
 
+    private ImageView imgSelected;
     private Context context;
-    private ViewPager viewPager;
-    public ProductDetailsAdapter(Context context,ViewPager viewPager) {
+    List<ProductImagesModel> modelList;
+    public ProductDetailsAdapter(Context context, List<ProductImagesModel> productImagesModels, ImageView imgSelected) {
         this.context=context;
-        this.viewPager=viewPager;
+        this.modelList=productImagesModels;
+        this.imgSelected=imgSelected;
     }
     @Override
     public ProductDetailsAdapter.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -30,13 +38,14 @@ public class ProductDetailsAdapter extends
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
-        holder.bind();
+        holder.itemView.setTag(modelList.get(position));
+        holder.bind(position);
 
     }
 
     @Override
     public int getItemCount() {
-        return 4;
+        return modelList.size();
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -46,19 +55,20 @@ public class ProductDetailsAdapter extends
             super(itemView);
             itemView.setOnClickListener(this);
             listimageView = itemView.findViewById(R.id.imgPd_image);
-
         }
 
 
-        public void bind() {
-            listimageView.setImageResource(R.drawable.slider_img1);
+        public void bind(int position) {
+            Glide.with(context).load(modelList.get(position).getImage())
+                    .into(listimageView);
         }
 
         @Override
         public void onClick(View view) {
 
-            viewPager.addView(view,0);
-            Toast.makeText(view.getContext(), (getAdapterPosition()+1)+" OF "+4, Toast.LENGTH_SHORT).show();
+            ProductImagesModel current= (ProductImagesModel) view.getTag();
+            Glide.with(context).load(current.getImage())
+                    .into(imgSelected);
         }
     }
 }

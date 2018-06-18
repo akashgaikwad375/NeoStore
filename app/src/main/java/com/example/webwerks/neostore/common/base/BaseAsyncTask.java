@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -32,25 +34,9 @@ public class BaseAsyncTask extends AsyncTask<Object,Object, Object> {
         this.method = method;
         this.data = data;
         request= (onAsyncTaskRequest) context;
-
     }
-    public BaseAsyncTask(Activity context, String method) {
-        this.context = context;
-        this.method = method;
-        request= (onAsyncTaskRequest) context;
-
-    }
-    public BaseAsyncTask(Activity context) {
-        this.context = context;
-        request= (onAsyncTaskRequest) context;
-    }
-
-    public BaseAsyncTask() {
-    }
-
     @Override
     protected Object doInBackground(Object... objects) {
-
         String url=objects[0].toString();
         if(method=="POST")
             return postMethod(url);
@@ -61,7 +47,9 @@ public class BaseAsyncTask extends AsyncTask<Object,Object, Object> {
 
     @Override
     protected void onPostExecute(Object o) {
-        request.asyncResponse(o);
+        if(statusCode==200)
+            request.onSuccess(o.toString());
+        else request.onFaliure(o.toString());
     }
 
     private Object postMethod(String address) {
@@ -148,5 +136,4 @@ public class BaseAsyncTask extends AsyncTask<Object,Object, Object> {
         }
         return null;
     }
-
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class ProductListingAdapter extends RecyclerView.Adapter<ProductListingAd
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
+        holder.itemView.setTag(mdata.get(position));
         holder.bind(position);
     }
 
@@ -82,9 +84,11 @@ public class ProductListingAdapter extends RecyclerView.Adapter<ProductListingAd
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(view.getContext(), (getAdapterPosition()+1)+" OF "+mdata.size(), Toast.LENGTH_SHORT).show();
+
+            ProductListModel current = (ProductListModel) view.getTag();
             Intent intent=new Intent(context,ProductDetailsActivity.class);
-            intent.putExtra("Data",productName.getText().toString());
+            intent.putExtra("Data",current.getName());
+            intent.putExtra("id",current.getId()+"");
             view.getContext().startActivity(intent);
         }
     }

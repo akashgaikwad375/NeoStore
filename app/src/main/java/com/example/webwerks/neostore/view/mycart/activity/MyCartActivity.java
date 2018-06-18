@@ -1,20 +1,14 @@
 package com.example.webwerks.neostore.view.mycart.activity;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 import com.example.webwerks.neostore.R;
 import com.example.webwerks.neostore.common.base.BaseActivity;
@@ -22,11 +16,14 @@ import com.example.webwerks.neostore.view.mycart.adapter.MyCartAdapter;
 
 public class MyCartActivity extends BaseActivity {
 
-    private Toolbar toolbar;
-    private TextView title;
     private MyCartAdapter mAdapter;
     private RecyclerView recyclerView;
     private Paint p = new Paint();
+
+    @Override
+    protected String setTitle() {
+        return getResources().getString(R.string.my_cart);
+    }
 
     @Override
     protected int getContentView() {
@@ -35,8 +32,6 @@ public class MyCartActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        toolbar=findViewById(R.id.toolbar);
-        title=toolbar.findViewById(R.id.title);
         recyclerView=findViewById(R.id.recycler_view);
         setAdapter();
         initSwipe();
@@ -82,12 +77,8 @@ public class MyCartActivity extends BaseActivity {
     }
 
     @Override
-    protected void setActionBar() {
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left_black_24dp);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        title.setText(R.string.my_cart);
+    protected boolean needActionBar() {
+        return true;
     }
 
     @Override

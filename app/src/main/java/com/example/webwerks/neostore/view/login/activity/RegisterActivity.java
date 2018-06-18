@@ -1,10 +1,6 @@
 package com.example.webwerks.neostore.view.login.activity;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Paint;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -20,11 +16,7 @@ import com.example.webwerks.neostore.common.base.BaseActivity;
 import com.example.webwerks.neostore.common.base.BaseAsyncTask;
 import com.example.webwerks.neostore.common.base.onAsyncTaskRequest;
 import com.example.webwerks.neostore.model.RegistrationModel;
-import com.example.webwerks.neostore.view.home.activity.HomeActivity;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +24,6 @@ public class RegisterActivity extends BaseActivity implements RadioGroup.OnCheck
         CompoundButton.OnCheckedChangeListener, View.OnClickListener,
         onAsyncTaskRequest {
 
-    private Toolbar toolbar;
     private TextView terms, agree, header, male, female;
     private EditText firstname,lastname,email,confirmPass, password,phone;
     private Button register;
@@ -41,6 +32,11 @@ public class RegisterActivity extends BaseActivity implements RadioGroup.OnCheck
     String stGender="M";
     private Boolean check=false;
     private String url="http://staging.php-dev.in:8844/trainingapp/api/users/register";
+
+    @Override
+    protected String setTitle() {
+        return getResources().getString(R.string.register);
+    }
 
     @Override
     public int getContentView() {
@@ -67,7 +63,6 @@ public class RegisterActivity extends BaseActivity implements RadioGroup.OnCheck
         cbAgree=findViewById(R.id.agree);
         register=findViewById(R.id.register);
 
-        toolbar=findViewById(R.id.toolbar);
         terms.setPaintFlags(terms.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
     }
 
@@ -79,11 +74,8 @@ public class RegisterActivity extends BaseActivity implements RadioGroup.OnCheck
        }
 
     @Override
-    public void setActionBar() {
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left_black_24dp);
+    protected boolean needActionBar() {
+        return false;
     }
 
     @Override
@@ -142,37 +134,15 @@ public class RegisterActivity extends BaseActivity implements RadioGroup.OnCheck
     }
 
     @Override
-    public void asyncResponse(Object obj) {
-        try {
-            JSONObject jsonObject=new JSONObject((String) obj);
-            int status=jsonObject.optInt("status");
-            if(status==200){
-                JSONObject dataObject=jsonObject.optJSONObject("data");
-                RegistrationModel rgModel=new RegistrationModel();
-                rgModel.setId(dataObject.optInt("id"));
-                rgModel.setRole_id(dataObject.optInt("role_id"));
-                rgModel.setFirst_name(dataObject.optString("first_name"));
-                rgModel.setLast_name(dataObject.optString("last_name"));
-                rgModel.setEmail(dataObject.optString("email"));
-                rgModel.setUsername(dataObject.optString("username"));
-                rgModel.setProfile_pic(dataObject.optString("profile_pic"));
-                rgModel.setCountry_id(dataObject.optString("country_id"));
-                rgModel.setGender(dataObject.optString("gender"));
-                rgModel.setPhone_no(dataObject.optInt("phone_no"));
-                rgModel.setDob(dataObject.optString("dob"));
-                rgModel.setIs_active(dataObject.optBoolean("is_active"));
-                rgModel.setCreated(dataObject.optString("created"));
-                rgModel.setModified(dataObject.optString("modified"));
-                rgModel.setAccess_token(dataObject.optString("access_token"));
-                finish();
-            }
-            else{
-                Toast.makeText(this, "Email id already exist", Toast.LENGTH_SHORT).show();
-            }
-        }
-        catch (JSONException e) {
-            e.printStackTrace();
-        }
+    public void onSuccess(String obj) {
+        Gson gson=new Gson();
+        RegistrationModel rgModel=gson.fromJson(obj.toString(),RegistrationModel.class);
+        finish();
+    }
+
+    @Override
+    public void onFaliure(String obj) {
+        Toast.makeText(RegisterActivity.this, "Invalid Data", Toast.LENGTH_SHORT).show();
 
     }
 }

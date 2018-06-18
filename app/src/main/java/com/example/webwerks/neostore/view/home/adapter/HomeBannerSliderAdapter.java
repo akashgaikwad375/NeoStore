@@ -14,6 +14,7 @@ public class HomeBannerSliderAdapter extends PagerAdapter {
 
     private LayoutInflater inflater;
     private Context context;
+
     private int bannerSlider[]={R.drawable.slider_img1,R.drawable.slider_img2,
             R.drawable.slider_img3,R.drawable.slider_img4};
 

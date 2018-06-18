@@ -1,8 +1,12 @@
 package com.example.webwerks.neostore.model;
 
-public class ProductListModel {
+public class ProductListModel extends BaseModel {
 
-    private int id, product_category_id,cost,rating,view_count;
+    private int id;
+    private int product_category_id;
+    private int cost;
+    private int rating;
+    private int view_count;
     private String name,producer,description,created,modified,
             product_images;
 

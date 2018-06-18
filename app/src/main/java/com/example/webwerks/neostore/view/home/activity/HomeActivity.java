@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -36,13 +38,17 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
     private CircleIndicator circleIndicator;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    private Toolbar toolbar;
-    private TextView title,txtUsername,txtEmail;
+    private TextView txtUsername,txtEmail;
     private ViewPager viewPager;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private ImageView tables,sofas,chairs,cupboards;
     private static int current_page=0;
     private View header;
+
+    @Override
+    protected String setTitle() {
+        return getResources().getString(R.string.login_header);
+    }
 
     @Override
     public int getContentView() {
@@ -54,8 +60,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
         circleIndicator=findViewById(R.id.slider_indicator);
         drawerLayout=findViewById(R.id.drawer_layout);
         navigationView=findViewById(R.id.navigation_view);
-        toolbar=findViewById(R.id.toolbar);
-        title=toolbar.findViewById(R.id.title);
         viewPager=findViewById(R.id.viewpager);
         tables=findViewById(R.id.tables_image);
         sofas=findViewById(R.id.sofas_image);
@@ -79,6 +83,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
     }
     @Override
     public void setListener() {
+        setAdapter();
         tables.setOnClickListener(this);
         sofas.setOnClickListener(this);
         chairs.setOnClickListener(this);
@@ -87,13 +92,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     @Override
-    public void setActionBar() {
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        title.setText(R.string.login_header);
-        setAdapter();
+    protected boolean needActionBar() {
+        return true;
     }
 
     public void setAdapter() {
@@ -117,7 +117,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
             }
         },2500,2500);
 
-        actionBarDrawerToggle = new ActionBarDrawerToggle(HomeActivity.this,drawerLayout, toolbar,
+        actionBarDrawerToggle = new ActionBarDrawerToggle(HomeActivity.this,drawerLayout,
+                (Toolbar) findViewById(R.id.toolbar),
                 R.string.openDrawer, R.string.closeDrawer){
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -129,8 +130,15 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
                 super.onDrawerOpened(drawerView);
             }
         };
+
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
+    }
+
+    @Override
+    public void onPostCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onPostCreate(savedInstanceState, persistentState);
+        actionBarDrawerToggle.syncState();
     }
 
     @Override
